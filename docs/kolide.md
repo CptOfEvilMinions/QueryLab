@@ -9,7 +9,7 @@
     1. `kolide_hostname` - Set hostname for this box
     1. `kolide_mysql_root_user` - Set MySQL root user
     1. `kolide_mysql_root_password` - Set MySQL root password
-    1. `kolide_mysql_user` - Set Kolide DB usernae
+    1. `kolide_mysql_user` - Set Kolide DB username
     1. `kolide_mysql_pass` - Set Kolide DB password
 1. `ansible-playbook -i hosts.ini deploy_kolide.yml -u <user> -K`
 

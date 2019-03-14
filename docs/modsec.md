@@ -25,7 +25,7 @@
 1. `nginx -V`
     1. Copy all the configure arguments
 1. `cd nginx-<NGINX version>`
-1. `./configure --with-compat <NGINX COMPILER FLAGS> --add-dynamic-module=../ModSecurity-nginx`
+1. `./configure <NGINX COMPILER FLAGS> --add-dynamic-module=../ModSecurity-nginx`
 1. `make modules`
 1. `mkdir /etc/nginx/modules`
 1. `cp objs/ngx_http_modsecurity_module.so /etc/nginx/modules`

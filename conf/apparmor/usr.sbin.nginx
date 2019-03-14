@@ -1,0 +1,30 @@
+# Last Modified: Thu Feb 28 17:23:47 2019
+#include <tunables/global>
+
+/usr/sbin/nginx {
+  #include <abstractions/base>
+  #include <abstractions/lxc/container-base>
+  capability dac_override,
+  capability dac_read_search,
+  capability net_bind_service,
+  capability setgid,
+  capability setuid,
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /usr/sbin/nginx mr,
+  /usr/share/nginx/html/wordpress/* r,
+  /etc/group r,
+  /etc/nginx/conf.d/ r,
+  /etc/nginx/mime.types r,
+  /etc/nginx/nginx.conf r,
+  /etc/nginx/modsec/* r,
+  /etc/nginx/modules/ngx_http_modsecurity_module.so mr,
+  /etc/nginx/cloudflare.conf r,
+  /etc/nsswitch.conf r,
+  /etc/passwd r,
+  /etc/ssl/openssl.cnf r,
+  /run/nginx.pid rw,
+  /usr/sbin/nginx mr,
+  /var/log/nginx/access.log w,
+  /var/log/nginx/error.log w,
+}
