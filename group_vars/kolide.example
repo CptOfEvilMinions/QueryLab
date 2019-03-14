@@ -1,0 +1,12 @@
+############################ Kolide settings ############################
+kolide_hostname: 'kolide'
+kolide_url: 'https://dl.kolide.co/bin/fleet_latest.zip'
+
+kolide_mysql_root_user: 'root'
+kolide_mysql_root_password: 'change-me'
+
+kolide_mysql_db_name: 'kolide'
+kolide_mysql_user: 'kolide'
+kolide_mysql_pass: 'change-me'
+
+kolide_jwt_key: 'secret_change_me'

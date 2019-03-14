@@ -1,0 +1,89 @@
+####################################################################
+#  Install/Setup Kolide
+####################################################################
+- name: Install unzip
+  package:
+    name: '{{ item }}'
+    state: latest
+  with_items:
+   - unzip
+
+- name: Create Kolide user
+  user:
+    name: kolide
+    shell: /usr/sbin/nologin
+    
+- name: Create Kolide log directory
+  file:
+    path: '/var/log/kolide'
+    state: directory
+    owner: kolide
+    group: root
+
+- name: Create Kolide conf directory
+  file:
+    path: /etc/kolide
+    state: directory
+    owner: root
+    group: root
+
+- name: Copy Kolide conf
+  template:
+    src: conf/kolide/kolide.yml
+    dest: /etc/kolide/kolide.yml
+    owner: root
+    group: root
+    mode: 0400
+
+- name: Stat Kolide
+  stat:
+    path: /usr/local/bin/fleet
+  register: stat_kolide
+
+
+- name: Download Kolide
+  unarchive:
+    src: '{{ kolide_url }}'
+    dest: /tmp
+    remote_src: yes
+  when: stat_kolide.stat.exists == False
+
+- name: Copy Kolide bins
+  copy:
+    src: '/tmp/linux/{{ item }}'
+    dest: '/usr/local/bin/{{ item }}'
+    owner: root
+    group: root
+    mode: 0755
+  with_items:
+    - 'fleet'
+    - 'fleetctl'
+  when: stat_kolide.stat.exists == False
+
+- name: Intialize Kolide database
+  shell: /usr/local/bin/fleet prepare db --config /etc/kolide/kolide.yml
+  when: stat_kolide.stat.exists == False
+
+- name: Copy Kolide SystemD
+  template:
+    src: conf/kolide/kolide.service
+    dest: /etc/systemd/system/kolide.service
+    owner: root
+    group: root
+    mode: 0400
+
+- name: Start Kolide service
+  service:
+    name: kolide
+    state: restarted
+    enabled: yes
+
+####################################################################
+# Slack notification
+####################################################################
+- name: Send slack notification when done
+  slack:
+    token: "{{ slack_token }}"
+    msg: '{{ ansible_nodename }}:{{ ansible_default_ipv4.address }} - Finished setting up Kolide Fleet manager - {{ ansible_nodename }}'
+    channel: "{{ slack_channel }}"
+  when: slack_token is undefined

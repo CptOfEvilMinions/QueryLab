@@ -1,0 +1,6 @@
+group_vars/all.yml
+group_vars/kolide.yml
+group_vars/osquery_agents.yml
+*.retry
+*.pyc
+__pycache__/

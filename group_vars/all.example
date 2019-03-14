@@ -1,0 +1,12 @@
+############################ General settings ############################
+base_domain: 
+timezone: America/New_York
+
+# Cert Generation
+cert_country: 
+cert_state: 
+cert_local: 
+cert_org: 
+
+slack_channel:
+slack_token:

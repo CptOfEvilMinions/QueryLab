@@ -1,0 +1,19 @@
+#include <tunables/global>
+
+/usr/local/bin/fleet {
+  #include <abstractions/base>
+
+  capability net_admin,
+
+  network inet,
+  network inet6,
+
+  /etc/kolide/kolide.yml r,
+  /var/log/kolide/** rw,
+  /proc/sys/net/core/somaxconn r,
+  /etc/mime.types r,
+  /etc/nsswitch.conf r,
+  /run/systemd/resolve/stub-resolv.conf r,
+  /etc/hosts r,
+  /etc/ssl/certs/** r,
+}

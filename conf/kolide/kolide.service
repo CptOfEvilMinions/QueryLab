@@ -1,0 +1,10 @@
+[Unit]
+Description=Kolide Fleet
+After=network.target
+
+[Service]
+LimitNOFILE=8192
+ExecStart=/usr/local/bin/fleet serve --config /etc/kolide/kolide.yml
+
+[Install]
+WantedBy=multi-user.target
