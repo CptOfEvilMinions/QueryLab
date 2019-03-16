@@ -1,0 +1,13 @@
+--host_identifier=hostname
+--config_plugin=filesystem
+--config_path=C:\ProgramData\osquery\osquery.conf
+--enable_monitor
+--events_expiry=300
+--logger_plugin=filesystem
+--logger_path=C:\ProgramData\osquery\log
+--database_path=C:\ProgramData\osquery\osquery.db
+--pidfile=C:\ProgramData\osquery\osquery.pid
+--disable_watchdog=false
+--disable_events=false
+--windows_event_channels=System,Application,Setup,Security
+--verbose

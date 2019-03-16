@@ -4,3 +4,6 @@ group_vars/osquery_agents.yml
 *.retry
 *.pyc
 __pycache__/
+Gemfile.lock
+_site/
+.sass-cache/

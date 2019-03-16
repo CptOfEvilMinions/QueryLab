@@ -1,5 +1,9 @@
 # QueryLab
 
+## Checkout our page
+https://cptofevilminions.github.io/QueryLab/
+
+
 ## Deploy Kolide
 ### Group_vars/all.yml
 1. `mv group_vars/all.yml group_vars/all.example`
@@ -11,7 +15,6 @@
 
 ### Install/Setup Kolide OSQuery fleet manager
 1. [Kolide setup](docs/kolide.md)
-
 
 
 ## Supported OSes
