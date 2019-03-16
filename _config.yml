@@ -26,7 +26,8 @@ github_username:  CptOfEvilMinions
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-architect
+remote_theme: pages-themes/architect
+#theme: jekyll-theme-architect
 plugins:
   - jekyll-feed
 
