@@ -7,8 +7,6 @@
 #
 layout: home
 ---
-
-# What is Querylab?
 QueryLab is a collaborative project between defenders and pen testers/red teamers. This project allows pen testers/red teamers to test their malware against OSQuery. This project has spent time currating OSquery rules to detect malware, check out [Test cases](test_cases.html). Below we provide two options to test your malware against OSquery.
 
 ## Option 1 - Community
@@ -21,4 +19,4 @@ The hope with this option is to increase the efficacy of OSquery to detect malwa
 ## Option 2 - Paranoid
 This project understands that the development time to create malware can be lengthy. Therefore, OSQuery configs are provided so that individuals can detonate their own malware and analyze it themselves.
 
-[OSquery configs](https://github.com/CptOfEvilMinions/QueryLab)
+[OSquery configs](https://github.com/CptOfEvilMinions/QueryLab/tree/master/osquery_configs)
