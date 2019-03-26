@@ -6,18 +6,18 @@ osquery_flag_url="https://raw.githubusercontent.com/CptOfEvilMinions/QueryLab/ma
 
 # Download Osquery
 echo "Downloading osquery-$osquery_version.pkg"
-wget "https://pkg.osquery.io/deb/osquery-$osquery_version.pkg" -O /tmp/osquery-$osquery_version.pkg
+curl "https://pkg.osquery.io/darwin/osquery-$osquery_version.pkg" --output /tmp/osquery-$osquery_version.pkg
 
 # Install OSquery
-installer -pkg /tmp/osquery_$osquery_version.linux.amd64.deb -target /var/osquery
+installer -pkg /tmp/osquery-$osquery_version.pkg -target /
 
 # Download Windows osquery.conf
 echo "Downloading osquery.conf"
-wget $osquery_conf_url -O /var/osquery/osquery.conf
+curl $osquery_conf_url --output /var/osquery/osquery.conf
 
 # Download Windows osquery.flags
 echo "Downloading osquery.flags"
-wget $osquery_flag_url -O /var/osquery/osquery.flags
+curl $osquery_flag_url --output /var/osquery/osquery.flags
 
 # Copy lauch daemon
 echo "Copy lauch daemon"

@@ -36,10 +36,18 @@
 1. Add with server block `modsecurity on;` and `modsecurity_rules_file /etc/nginx/modsec/main.conf;`
 
 ### Modsec rules
-1. `mkdir /etc/nginx/modsec`
+1. `mkdir /etc/nginx/modsec && cd /etc/nginx/modsec`
+1. `git clone https://github.com/SpiderLabs/owasp-modsecurity-crs.git`
+1. `mv /etc/nginx/modsec/owasp-modsecurity-crs/crs-setup.conf.example /etc/nginx/modsec/owasp-modsecurity-crs/crs-setup.conf`
 1. `wget -P /etc/nginx/modsec/ https://raw.githubusercontent.com/SpiderLabs/ModSecurity/v3/master/modsecurity.conf-recommended`
 1. `mv /etc/nginx/modsec/modsecurity.conf-recommended /etc/nginx/modsec/modsecurity.conf`
 1. `sed -i 's/SecRuleEngine DetectionOnly/SecRuleEngine On/' /etc/nginx/modsec/modsecurity.conf`
+1. `echo 'Include "/etc/nginx/modsec/owasp-modsecurity-crs/crs-setup.conf"' >> /etc/nginx/modsec/main.conf`
+1. `echo 'Include "/etc/nginx/modsec/owasp-modsecurity-crs/rules/*.conf"'>> /etc/nginx/modsec/main.conf`
+1. `wget https://raw.githubusercontent.com/SpiderLabs/ModSecurity/v3/master/unicode.mapping`
+1. `echo "SecRuleRemoveById 949110" >> owasp-modsecurity-crs/crs-setup.conf`
+    1. Disable rule 949110 - Matched "Operator `Ge' with parameter `5' against variable `TX:ANOMALY_SCORE' (Value: `10' )
+1. `systemctl restart nginx`
 
 ## Resources/Sources
 * [Compiling and Installing ModSecurity for NGINX Open Source](https://www.nginx.com/blog/compiling-and-installing-modsecurity-for-open-source-nginx/)
