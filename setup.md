@@ -42,9 +42,15 @@ A [BASH script](https://github.com/CptOfEvilMinions/QueryLab/blob/master/osquery
 * CentOS 7 64-bit
 
 ### <u>Install/Setup OSquery on macOS</u>
-A [BASH script](https://github.com/CptOfEvilMinions/QueryLab/blob/master/osquery_configs/macOS/setup.sh) has been provided to download/install OSquery and then pull down [OSquery configs for Linux](https://github.com/CptOfEvilMinions/QueryLab/tree/master/osquery_configs/macOS). This script accepts several command line arugments such as: `osquery_version`, `osquery_flag_url`, `osquery_conf_url`.
+A [BASH script](https://github.com/CptOfEvilMinions/QueryLab/blob/master/osquery_configs/macOS/setup.sh) has been provided to download/install OSquery and then pull down [OSquery configs for macOS](https://github.com/CptOfEvilMinions/QueryLab/tree/master/osquery_configs/macOS).
 1. `Open a terminal as Administrator`
-1. `wget https://raw.githubusercontent.com/CptOfEvilMinions/QueryLab/master/osquery_configs/macOS/setup.sh`
+1. `curl https://raw.githubusercontent.com/CptOfEvilMinions/QueryLab/master/osquery_configs/macOS/setup.sh --output setup.sh`
+1. `chmod +x setup.sh`
 1. `./setup.sh`
+    1. ![macOS-osquery-setup](assets/images/macOS-osquery-setup.png)
+
+#### <u>Supported OSes</u>
+* macOS Mojave 10.14.3
 
 ## <u>Resources/Sources</u>
+
