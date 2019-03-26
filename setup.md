@@ -21,7 +21,7 @@ title: 'Setup'
 ## <u>Option 2 - Paranoid</u>
 
 ### <u>Install/Setup OSquery on Windows</u>
-A [Powershell script](https://github.com/CptOfEvilMinions/QueryLab/blob/master/osquery_configs/Windows/setup.ps1) has been provided to download/install OSquery and then pull down [OSquery configs for Windows](https://github.com/CptOfEvilMinions/QueryLab/tree/master/osquery_configs/Windows). This script accepts several command line arugments such as: `osquery_version`, `osquery_flag_url`, `osquery_conf_url`.
+A [Powershell script](https://github.com/CptOfEvilMinions/QueryLab/blob/master/osquery_configs/Windows/setup.ps1) has been provided to download/install OSquery and then pull down [OSquery configs for Windows](https://github.com/CptOfEvilMinions/QueryLab/tree/master/osquery_configs/Windows). This script accepts several command line arguments such as: `osquery_version`, `osquery_flag_url`, `osquery_conf_url`.
 
 1. `Open Powershell as Administrator`
 1. `Invoke-Webrequest https://raw.githubusercontent.com/CptOfEvilMinions/QueryLab/master/osquery_configs/Windows/setup.ps1 -OutFile setup.ps1`
